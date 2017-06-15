@@ -115,7 +115,7 @@ subset_sum([3,9,8,4,5,7,10],15)
 
 def binary_search(array, t):
 	first = 0
-	last = len(array)
+	last = len(array) - 1
 	found = False
 
 	while first < last and not found:
@@ -523,10 +523,23 @@ def is_palindrome(word):
 	return is_palindrome(word[1:-1])
 
 
+import heapq
+def find_kth_larget(nums, k):
+	heap = []
+	for num in nums:
+		heapq.heappush(heap, num) #O(nlogn)
+	for _ in xrange(len(nums) - k):
+		heapq.heappop(heap) #O((n-k)logn)
+	return heapq.heappop(heap)
 
 
+def find_kth_larget(nums, k):
+	heapq.heapify(nums) #O(n)
 
+	for i in range(len(nums) - k): #O((n-k)log(n))
+		heapq.heappop(nums)
 
+	return heapq.heappop(nums)
 
 
 
@@ -541,6 +554,21 @@ def perm(array, target, partial = []):
 		perm(remainder, target, partial + [n])
 		
 
+"""
+find number of ways change can be made
+"""
 
+coins = [1,5, 10, 25]
+amount = 30
 
+def coin_change_2(amount, coins):
+	dp = [0] * (amount + 1)
+	dp[0] = 1
 
+	for coin in coins:
+		for change in range(1, amount + 1):
+			if change >= coin:
+				dp[change] += dp[change - coin]
+
+	return dp
+coin_change_2(amount, coins)

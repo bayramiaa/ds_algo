@@ -268,21 +268,17 @@ def reverse(s):
 
 
 
-def dedup_sentence(array):
 
 
 
-
-
-
-#### Find the Least Common Anncestor 
+# Find the Least Common Anncestor
 
 
 root = Node(1)
 root.left = Node(2)
 root.left.left = Node(4)
 root.left.right = Node(5)
-root.right = node(3)
+root.right = Node(3)
 root.right.left = Node(6)
 root.right.right = Node(7)
 
@@ -290,8 +286,8 @@ root.right.right = Node(7)
 class Node():
     def __init__(self, key):
         self.key = key
-        self.left = left
-        self.right = right
+        self.left = None
+        self.right = None
 
 def find_path(root, path, k):
 
@@ -303,8 +299,7 @@ def find_path(root, path, k):
     if root.key == k:
         return True
 
-    if (root.left is not None and find_path(root.left, path, k)) and
-       (root.right is not None and find_path(root.right, path, k)):
+    if (root.left is not None and find_path(root.left, path, k)) and (root.right is not None and find_path(root.right, path, k)):
        return True
 
     path.pop()
@@ -312,7 +307,7 @@ def find_path(root, path, k):
 
 
 def find_LCA(root, k1, k2):
-
+    return
 
 
 
@@ -325,94 +320,34 @@ print left view of binary tree
          12
        /     \
      10       30
-            /    \
-          25      40 
+    /        /    \
+  18        25      40
 
 """
 
-class Node():
+class Node:
     def __init__(self, key):
         self.key = key
-        self.left = left 
-        self.right = right
+        self.left = None
+        self.right = None
 
 
 root = Node(12)
 root.left = Node(10)
+root.left.left = Node(18)
 root.right = Node(30)
 root.right.left = Node(25)
 root.right.right = Node(40)
 
-def get_left_level(root):
 
+
+def print_left_view(root):
     if root is None:
-        return False
-
-    if root.left is not None
+        return
 
 
 
-
-
-
-
-
-
-"""
-linked list
-"""
-
-class Node():
-    def __init__(self, data=None):
-        self.data = data
-        self.next = None
-
-
-class LinkedList():
-    def __init__(self):
-        self.head = None
-
-    def add(self, item):
-        temp = Node(item)
-        temp.next = self.head
-        self.head = temp
-
-    def get_length(self):
-        count = 0
-        tmp = self.head
-        while tmp.data is not None:
-            tmp = tmp.next
-            count += 1
-
-        return count
-
-    def get_kth(self, k):        
-        if self.head is None:
-            return 
-
-        l = self.get_length()
-        tmp = self.head
-
-        for i in range(len(l - k + 1)):
-            tmp = tmp.next
-
-        return tmp.data
-
-l = LinkedList()
-l.add(Node(1))
-l.add(Node(4))
-l.add(Node(5))
-l.add(Node(10))
-l.add(Node(3))
-
-l.get_length()
-l.get_kth(3)
-
-
-
-
-
-
+print_left_view(root)
 
 
 

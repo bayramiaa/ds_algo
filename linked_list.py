@@ -116,6 +116,7 @@ l.print_list()
 # l.head.next.next.next.next.next = l.head.next.next
 # l.print_list()
 
+[1, 1, 2]
 
 
 

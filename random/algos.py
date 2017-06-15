@@ -14,14 +14,10 @@ Return:
 Counter('hi there') == Counter('ereht ih')
 
 """
-words = ["eat", "tea", "tan", "ate", "nat", "bat"]
 
-from collections import Counter
-def group_anagrams(words):
-    counts = Counter([tuple(sorted(s)) for s  in words])
-    return filter(lambda x: counts[tuple(sorted(x))], words)
 
-#print group_anagrams(words)
+
+
 
 """
 Given a list of non negative integers, arrange them such that they form the largest number.
@@ -215,7 +211,7 @@ nested_sum([1,[1,2],[2]])
 
 
 """
-2 stacks as a queue
+    2 stacks as a queue
 """
 
 class Stack:
@@ -455,3 +451,32 @@ class Solution:
                 r -= 1
             minHeight = min(height[l], height[r])
         return water
+
+
+
+"""
+given a sorted array, find single element that that does not have a pair
+"""
+
+
+def non_dup(arr):
+    low = 0
+    high = len(arr) - 1
+
+    while low < high:
+        mid = (low + high) / 2
+        if (arr[mid] == arr[mid+1]) and (mid % 2 == 0):
+            low = mid + 1
+        elif (arr[mid] == arr[mid-1]) and (mid % 2 == 1):
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return arr[low]
+
+
+print x
+non_dup(x)
+
+
+
