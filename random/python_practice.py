@@ -82,8 +82,6 @@ def find_string(string,dic):
 				dic[word] = dic.get(word,0) + 1
 	return dic
 
-find_string(string,dic)
-
 
 def simple_sort(array):
 	for i in range(1, len(x)):
@@ -108,9 +106,6 @@ def simple_search(array, t):
 		count +=1
 	return found
 
-
-
-subset_sum([3,9,8,4,5,7,10],15)
 
 
 def binary_search(array, t):
@@ -253,26 +248,7 @@ def twoSum(nums, target):
         else:
             hold[target - num] = num
 	            
-	    
-# nlogn
-def better_find_pair_sum(array, t):
-	array.sort()
-	first = 0
-	last = len(array) - 1
-	response = []
 
-	while first <= last:
-		pair = (array[first], array[last])
-		if sum(pair) == t:
-			response.append(pair)
-			first +=1
-			last -=1
-		elif sum(pair) < t:
-			first += 1
-		else:
-			last -=1
-
-	return response
 better_find_pair_sum([1,1,2,2,1,1,3],2)
 
 
@@ -397,7 +373,6 @@ check_bracket("((())") == False
 
 ###Dedup a list (remove duplicates). 
 
-leetcode 
 x = [1,2,3,3,1,2,4]
 def dedup_list(array):
 	r = []
@@ -410,13 +385,7 @@ dedup_list(x)
 
 
 
-#A hash table is a collection of items which are stored in such a way as to make it easy to find them later. 
-
-
-def bubble_sort(array):
-	for i in range(1, len(array)):
-		tmp = array[i]
-
+#A hash table is a collection of items which are stored in such a way as to make it easy to find them later.
 
 def del_dups(seq):
     seen = {}
@@ -431,53 +400,6 @@ def del_dups(seq):
     del seq[pos:]
 
 del_dups([1,2,2,2,3,4,5,1,6])
-
-
-
-x = 'hi there this is the sentence i am testing hi'
-x = x.split()
-
-hold = {}
-l = len(x)
-for i in range(l):
-	if x[i] in hold:
-		hold[x[i]].append(i)
-	else:
-		hold[x[i]] = [i]
-
-r = [''] * l
-
-for word, index_list in hold.iteritems():
-	for i in index_list:
-		r[i] = word
-
-print ' '.join(r)
-
-
-
-x = [1,1,2,3,4,2]
-pos  = 0 
-
-for num in x:
-	if num not in hold:
-		hold[num] = True
-		x[pos] = num
-		pos += 1
-
-del x[pos:]
-print x
-
-
-#recursively sum through list
-x = [1,2,3,4,5]
-
-def rec_sum(array):
-	if len(array)  == 1:
-		return array[0]
-	else:
-		return array[0] + rec_sum(array[1:])
-rec_sum(x)
-
 
 
 
