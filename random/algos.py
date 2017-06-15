@@ -289,22 +289,6 @@ def group_anagrams(arr):
     return hold
 
 w = group_anagrams(l)
-w
-
-
-
-
-#group anagrams
-
-list = ["eat", "tea", "tan", "ate", "nat", "bat"]
-
-class Word:
-    def __init__(self, string, index):
-        self.string = string
-        self.index = index
-
-def group_anagrams(arr):
-
 
 
 

@@ -77,32 +77,6 @@ def binary_search(ordered_array, item):
 			first = first + 1
 	return found
 
-# simple search
-def linear_search(unordered_array, item):
-	found = False
-	count = 0
-	while not found and count <= len(unordered_array):
-		if unordered_array[count] == item:
-			found = True
-		count += 1
-	return	found
-
-
-
-
-x = [1,1,2,2,3,4]
-
-def find_3_elements_sub(array, x):
-	answers = []
-	for i in range(len(array)): # 0 1 2 3 4
-		for j in range(1, len(array)): # 1 2 3 4
-			for k in range(2, len(array)): # 2 3 4
-				print (array[i], array[j], array[k])
-				sum_sub = array[i] + array[j] + array[k]
-				if sum_sub == x:
-					answers.append([array[i],array[j],array[k]]) 
-	return answers
-
 """
 median 2 sorted arrays
 """
@@ -195,6 +169,26 @@ permutation([1,2,3])
 
 
 
+"""
+max sub array that sums to taget
+"""
+
+arr = [1,2,3,3,4]
+t = 6
+
+### 1 --> sum = 1 --> {1: 0}
+###
+def max_length_sub(arr, target):
+	ans = 0
+	sums = 0
+	mem = {}
+
+	for i in xrange(len(arr)):
+		sums += arr[i]
+		if sums not in mem:
+			mem[sums] = i
+		if sums - target in mem:
+			ans = max(ans, )
 
 
 
@@ -204,6 +198,41 @@ permutation([1,2,3])
 
 
 
+
+
+
+
+
+
+
+def permutations(arr):
+	if len(arr) == 1:
+		return [arr]
+
+	res = []
+	for a in arr:
+		remaining = [i for i in arr if i != a]
+		b = permutations(remaining)
+
+		for sub_arr in b:
+			res.append([a] + sub_arr)
+
+
+def subset_sum(arr, target):
+
+	res = []
+	def run(arr, target, partial = []):
+		print partial
+		if sum(partial) == target:
+			res.append(partial)
+
+		for i in range(len(arr)):
+			curr = arr[i]
+			remaining = arr[i+1:]
+			run(remaining, target, partial + [curr])
+
+	run(arr, target)
+	return res
 
 
 
