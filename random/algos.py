@@ -262,6 +262,17 @@ response:    [
       ["bat"]
     ]
 """
+def anagram_groups(input):
+    hold = defaultdict(list)
+    for word in input: #O(n)
+        ordered = ''.join(sorted(word))  #O(klogk)
+        hold[ordered].append(word) #O(1)
+
+    return hold.values()
+
+input = ["eat", "tea", "tan", "ate", "nat", "bat"]
+anagram_groups(input)
+
 
 
 
@@ -425,9 +436,22 @@ class RandomizedSet(object):
         return self.nums[random.randint(0, len(self.nums) - 1)]
 
 
+""" Waterfall Problem
+Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
+"""
 
-
-
-
-
-
+class Solution:
+    # @param {integer[]} height
+    # @return {integer}
+    def trap(self, height):
+        n = len(height)
+        l, r, water, minHeight = 0, n - 1, 0, 0
+        while l < r:
+            while l < r and height[l] <= minHeight:
+                water += minHeight - height[l]
+                l += 1
+            while r > l and height[r] <= minHeight:
+                water += minHeight - height[r]
+                r -= 1
+            minHeight = min(height[l], height[r])
+        return water

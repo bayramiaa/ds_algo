@@ -1,3 +1,5 @@
+#### LRU cache using double linked list
+
 class Node:
     def __init__(self, k, v):
         self.key = k
@@ -16,16 +18,16 @@ class LRUCache:
         self.tail.prev = self.head
 
     def get(self, key):
-        if key in self.dic:
-            n = self.dic[key]
-            self._remove(n)
-            self._add(n)
+        if key in self.dic:   #O(1)
+            n = self.dic[key] #O(1)
+            self._remove(n)   #O(1)
+            self._add(n)      #O(1)
             return n.val
         return None
 
     def set(self, key, value):
-        if key in self.dic:
-            self._remove(self.dic[key])
+        if key in self.dic: #O(1)
+            self._remove(self.dic[key]) #O(1)
         n = Node(key, value)
         self._add(n)
         self.dic[key] = n
