@@ -17,3 +17,7 @@ def find_max_sum(arr):
     return max(excl, incl)
 
 find_max_sum(arr)
+
+
+"""Loop for all elements in arr[] and maintain two sums incl and excl
+where incl = Max sum including the previous element and excl = Max sum excluding the previous element."""

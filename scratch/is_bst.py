@@ -33,6 +33,10 @@ class TreeNode:
 	def set_right_child(self, obj):
 		obj.set_parent(self)
 		self.right = obj
+"""
+that traverses down the tree keeping track of the narrowing min and max allowed values as it goes,
+looking at each node only once. The initial values for min and max should be INT_MIN and INT_MAX
+"""
 
 max_value = float('inf')
 min_value = float('-inf')
