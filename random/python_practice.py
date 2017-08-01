@@ -1,22 +1,3 @@
-def find_word_count(sentence):
-	all_words = sentence.split()
-	return len(all_words)
-
-def find_count_of_words(sentence):
-	words = sentence.split()
-	word_count = {}
-
-	for word in words:
-		word_count[word] = word_count.get(word, 0) + 1
-	return word_count
-
-def get_max(array):
-	max_int = 0
-	for integer in array:
-		if integer > max_int:
-			max_int = integer
-	return max_int
-
 def get_median(array):
 	q, r = divmod(len(array), 2)
 	# divmod(5,2) = 2,1
@@ -41,17 +22,6 @@ def first_non_reocurring(array):
 			return num
 
 	return None
-
-def most_reocurring_number(array):
-	counts = {}
-
-	for num in array:
-		counts[num] = counts.get(num,0) + 1
-
-	items = counts.items()
-	sorted_items = sorted(items, key = lambda w: w[1], reverse=True)[0]
-
-	return sorted_items[0]
 
 
 def find_minimum_distance(array):
@@ -206,7 +176,7 @@ def semi_dynamic_coin_change(coins, change, mem):
 				mem[change] = num_coins
 	return num_coins
 
-semi_dynamic_coin_change(coins,change,[0] * (change + 1))
+semi_dynamic_coin_change(coins, change,[0] * (change + 1))
 
 
 

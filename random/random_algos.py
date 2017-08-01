@@ -139,6 +139,23 @@ coin_change(coins, 4)
 
 
 
+def semi_dynamic_coin_chance(coins, target, mem):
+	if target in coins:
+		mem[target] = 1
+		return 1
+	if target in mem:
+		return mem[target]
+
+	for coin in [c for c in coins if c < target]:
+		curr_coins= 1 + semi_dynamic_coin_chance(coins, target - coin, mem)
+
+		if curr_coins < target:
+			mem[target]
+
+
+
+
+
 
 
 
